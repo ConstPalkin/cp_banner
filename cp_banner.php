@@ -48,9 +48,11 @@ function cp_banner($atts, $content=null) {
 
 		$btags = array();
 		$gtags = get_the_tags($post->ID);
+		if ($gtags) {
 		foreach ($gtags AS $tag) { 
 			$btags[] = $tag->name;
 		} //foreach tags
+		} //if tags
 
 		if ( $banner_tag == '' || ($banner_tag != '' && in_array($banner_tag,$btags))) { //отбор по тегу
 			if ($attachments) { // если это "картиночный" баннер, то формируем его из картинки и цитаты
